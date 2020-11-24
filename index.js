@@ -113,9 +113,14 @@ var calculateLiabilites = (ledger, constants) => {
   return totalValue;
 };
 
+var calculateWorkCapitalRatio = (assets, liability) => {
+  return assets / liability;
+};
+
 var revenue = calRevOrExp(ledger, constants.ACCOUNT_CATEGORY_REVENUE);
 var expense = calRevOrExp(ledger, constants.ACCOUNT_CATEGORY_EXPENSE);
 var grossPro = grossProfit(ledger, constants, revenue);
 var netPro = netProfit(expense, revenue);
 var calAssets = calculateAssets(ledger, constants);
 var calLiab = calculateLiabilites(ledger, constants);
+var workCaptialRatio = calculateWorkCapitalRatio(calAssets, calLiab);
