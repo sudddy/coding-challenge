@@ -28,7 +28,7 @@ var grossProfit = (ledger, constants, revenue) => {
       return total + data.total_value;
     }, 0);
 
-  totalValue = value / revenue;
+  totalValue = (value / revenue) * 100;
   console.log(
     "Gross Profit : ",
     totalValue.toLocaleString("en-US", { maximumFractionDigits: 0 }) + "%"
@@ -38,7 +38,7 @@ var grossProfit = (ledger, constants, revenue) => {
 
 var netProfit = (expense, revenue) => {
   let remainder = revenue - expense;
-  let value = remainder / revenue;
+  let value = (remainder / revenue) * 100;
   console.log(
     "Net Profit Margin",
     value.toLocaleString("en-US", { maximumFractionDigits: 0 }) + "%"
