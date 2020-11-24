@@ -1,15 +1,15 @@
 var ledger = require("./data.json");
 var constants = require("./constant");
 
-var calculateRevenue = ledger => {
+var calRevOrExp = (ledger, constant) => {
   let data = ledger.data;
   let totalValue = data
-    .filter(data => data.account_category === constants.ACCOUNT_REVENUE)
+    .filter(data => data.account_category === constant)
     .reduce((total, data) => {
       return total + data.total_value;
     }, 0);
-
-  console.log("Revenue: ", totalValue);
+  console.log(constant, totalValue);
 };
 
-calculateRevenue(ledger);
+calRevOrExp(ledger, constants.ACCOUNT_REVENUE);
+calRevOrExp(ledger, constants.ACCOUNT_EXPENSE);
