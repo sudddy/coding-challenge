@@ -8,7 +8,10 @@ var calRevOrExp = (ledger, constant) => {
     .reduce((total, data) => {
       return total + data.total_value;
     }, 0);
-  console.log(constant, totalValue);
+  console.log(
+    constant,
+    "$" + totalValue.toLocaleString("en-US", { maximumFractionDigits: 0 })
+  );
   return totalValue;
 };
 
@@ -25,16 +28,21 @@ var grossProfit = (ledger, constants, revenue) => {
       return total + data.total_value;
     }, 0);
 
-  console.log("before", value);
   totalValue = value / revenue;
-  console.log("value", totalValue);
+  console.log(
+    "Gross Profit : ",
+    totalValue.toLocaleString("en-US", { maximumFractionDigits: 0 }) + "%"
+  );
   return totalValue;
 };
 
 var netProfit = (expense, revenue) => {
   let remainder = revenue - expense;
   let value = remainder / revenue;
-  console.log("value", value);
+  console.log(
+    "Net Profit Margin",
+    value.toLocaleString("en-US", { maximumFractionDigits: 0 }) + "%"
+  );
   return value;
 };
 
@@ -71,10 +79,6 @@ var calculateAssets = (ledger, constants) => {
     }, 0);
 
   totalValue = addValues + subractvalues;
-
-  console.log("assets", totalValue);
-  console.log("addValues", addValues);
-  console.log("subractValue", subractvalues);
   return totalValue;
 };
 
@@ -107,14 +111,16 @@ var calculateLiabilites = (ledger, constants) => {
     }, 0);
 
   totalValue = addValues + subractvalues;
-  console.log("liability", totalValue);
-  console.log("addValues", addValues);
-  console.log("subractValue", subractvalues);
   return totalValue;
 };
 
 var calculateWorkCapitalRatio = (assets, liability) => {
-  return assets / liability;
+  let value = (assets / liability) * 100;
+  console.log(
+    "Working Capital Ratio: ",
+    value.toLocaleString("en-US", { maximumFractionDigits: 0 }) + "%"
+  );
+  return value;
 };
 
 var revenue = calRevOrExp(ledger, constants.ACCOUNT_CATEGORY_REVENUE);
