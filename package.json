@@ -1,0 +1,22 @@
+{
+  "name": "coding-challenge",
+  "version": "1.0.0",
+  "description": "Coding challenge for 9spokes",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudddy/coding-challenge.git"
+  },
+  "keywords": [
+    "9Spokes"
+  ],
+  "author": "Sudharsan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudddy/coding-challenge/issues"
+  },
+  "homepage": "https://github.com/sudddy/coding-challenge#readme"
+}
